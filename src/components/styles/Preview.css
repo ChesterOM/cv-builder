@@ -1,0 +1,12 @@
+.preview-container {
+    height: 29.7cm;
+    width: 21cm;
+    background-color: white;
+    margin-left: 50px;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,.1), 0 8px 16px -8px rgba(0,0,0,.25);
+}
+
+.preview-top {
+    display: grid;
+    background-color: #0e374e ;
+}

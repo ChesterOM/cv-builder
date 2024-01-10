@@ -1,0 +1,12 @@
+body{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+#root{
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  background-color: rgb(238, 235, 235);
+  height: 100vh;
+}

@@ -1,12 +1,35 @@
 /* eslint-disable react/prop-types */
 
-import '../styles/ExperienceInfo.css'
+import { v4 as uuidv4 } from 'uuid';
+import '../styles/ExperienceInfo.css';
+import Buttons from '../Buttons';
+import { useState } from 'react';
 
-
-function ExperienceInfo({experienceData, setExperienceData}) {
+function ExperienceInfo({ experienceData, setExperienceData, initializeNewExperienceEntry }) {
+    const [editingEntry, setEditingEntry] = useState(initializeNewExperienceEntry());
 
     const handleInputChange = (e) => {
-        setExperienceData({ ...experienceData, [e.target.name]: e.target.value });
+        setEditingEntry({ ...editingEntry, [e.target.name]: e.target.value });
+    };
+
+    const handleSave = () => {
+        if (editingEntry.id) {
+            const updatedExperienceData = experienceData.map(entry => 
+                entry.id === editingEntry.id ? editingEntry : entry
+            );
+            setExperienceData(updatedExperienceData);
+        } else {
+            setExperienceData([...experienceData, { ...editingEntry, id: uuidv4() }]);
+        }
+    };
+
+    const resetForm = () => {
+        setEditingEntry(initializeNewExperienceEntry());
+    };
+
+    const deleteExperience = (entryId) => {
+        const updatedExperienceData = experienceData.filter(entry => entry.id !== entryId);
+        setExperienceData(updatedExperienceData);
     };
 
     return (
@@ -30,14 +53,14 @@ function ExperienceInfo({experienceData, setExperienceData}) {
                 />
                 <input 
                     type="text" 
-                    name="start-date"
+                    name="startDate"
                     value={experienceData.startDate}
                     onChange={handleInputChange}
                     placeholder="Start date of position" 
                 />
                 <input 
                     type="text" 
-                    name="end-date"
+                    name="endDate"
                     value={experienceData.endDate}
                     onChange={handleInputChange}
                     placeholder="End date of Position" 
@@ -55,6 +78,11 @@ function ExperienceInfo({experienceData, setExperienceData}) {
                     value={experienceData.description}
                     onChange={handleInputChange}
                     placeholder="Job Description" 
+                />
+                <Buttons 
+                onSave={handleSave}
+                onCancel={resetForm}
+                onDelete={() => deleteExperience(editingEntry.id)}
                 />
             </form>
         </div>

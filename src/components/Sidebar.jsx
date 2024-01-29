@@ -5,12 +5,25 @@ import ExperienceInfo from "./experience/ExperienceInfo"
 import './styles/Sidebar.css'
 import './styles/Inputs.css'
 
-export default function Sidebar({ generalData, setGeneralData, educationData, setEducationData, experienceData, setExperienceData }){
+function Sidebar({ generalData, setGeneralData, educationData, setEducationData, experienceData, setExperienceData, initializeNewEducationEntry, initializeNewExperienceEntry }) {
    return (
-      <div className="Sidebar">
-         <GeneralInfo generalData={generalData} setGeneralData={setGeneralData} />
-         <EducationInfo educationData={educationData} setEducationData={setEducationData} />
-         <ExperienceInfo experienceData={experienceData} setExperienceData={setExperienceData} />
-      </div>
-   )
+       <div className="Sidebar">
+           <GeneralInfo
+               generalData={generalData}
+               setGeneralData={setGeneralData}
+           />
+           <EducationInfo
+               educationData={educationData}
+               setEducationData={setEducationData}
+               initializeNewEducationEntry={initializeNewEducationEntry}
+           />
+           <ExperienceInfo
+               experienceData={experienceData}
+               setExperienceData={setExperienceData}
+               initializeNewExperienceEntry={initializeNewExperienceEntry}
+           />
+       </div>
+   );
 }
+
+export default Sidebar;

@@ -1,11 +1,36 @@
 /* eslint-disable react/prop-types */
 
+import { v4 as uuidv4 } from 'uuid';
 import '../styles/EducationInfo.css';
+import Buttons from '../Buttons';
+import { useState } from 'react';
 
-function EducationInfo({educationData, setEducationData}) {
+
+function EducationInfo({educationData, setEducationData, initializeNewEducationEntry}) {
+    const [editingEntry, setEditingEntry] = useState(initializeNewEducationEntry);
 
     const handleInputChange = (e) => {
-        setEducationData({ ...educationData, [e.target.name]: e.target.value });
+        setEditingEntry({ ...editingEntry, [e.target.name]: e.target.value });
+    };
+
+    const handleSave = () => {
+        if (editingEntry.id) {
+            const updatedEducationData = educationData.map((entry) =>
+                entry.id === editingEntry.id ? editingEntry : entry
+            );
+            setEducationData(updatedEducationData);   
+        } else {
+            setEducationData([...educationData, { ...editingEntry, id: uuidv4() }]);
+        }
+    };
+
+    const resetForm = () => {
+        setEditingEntry({ ...educationData[0] });
+    };
+
+    const deleteEducation = (entryId) => {
+        const updatedEducationData = educationData.filter((entry) => entry.id !== entryId);
+        setEducationData(updatedEducationData);
     };
 
     return (
@@ -29,14 +54,14 @@ function EducationInfo({educationData, setEducationData}) {
                 />
                 <input 
                     type="text" 
-                    name="start-date"
+                    name="startDate"
                     value={educationData.startDate}
                     onChange={handleInputChange}
                     placeholder="Start date of study" 
                 />
                 <input 
                     type="text" 
-                    name="end-date"
+                    name="endDate"
                     value={educationData.endDate}
                     onChange={handleInputChange}
                     placeholder="End date of study" 
@@ -49,6 +74,11 @@ function EducationInfo({educationData, setEducationData}) {
                     placeholder="Location" 
                 />
             </form>
+            <Buttons 
+                onSave={handleSave}
+                onCancel={resetForm}
+                onDelete={() => deleteEducation(editingEntry.id)}
+            />
         </div>
     )
 }

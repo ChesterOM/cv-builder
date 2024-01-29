@@ -2,11 +2,103 @@
     height: 29.7cm;
     width: 21cm;
     background-color: white;
-    margin-left: 50px;
+    margin: auto;
     box-shadow: 0 13px 27px -5px rgba(50,50,93,.1), 0 8px 16px -8px rgba(0,0,0,.25);
+    position: relative;
+    font-family: 'Arial', sans-serif;
 }
 
 .preview-top {
     display: grid;
-    background-color: #0e374e ;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #0e374e;
+    color: white;
+    padding: 16px 75px 16px 75px;
+    gap: 8px;
+    align-items: center;
+    height: 150px;
+}
+
+.preview-top h1, .preview-top h2 {
+    margin: 0;
+}
+
+.preview-top h1 {
+    grid-column: span 3;
+    font-size: 36px;
+    text-align: center;
+}
+
+.preview-top h2 {
+    font-size: 18px;
+    text-align: center;
+    margin-top: -25px;
+}
+
+.preview-bottom {
+    margin-top: 16px;
+}
+
+.section {
+    margin-bottom: 16px;
+    flex-direction: column;
+}
+
+.section h3 {
+    border-bottom: 2px solid #0e374e;
+    display: inline-block;
+    margin-bottom: 8px;
+    font-size: 24px;
+    color: #0e374e;
+    padding-bottom: 4px;
+}
+
+.section-content {
+    padding-left: 16px;
+}
+
+.section-content > div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.section-content h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.section-content p {
+    margin: 0;
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+}
+
+.icon-container img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.preview-education-container {
+    display: flex;
+    justify-content: center;
+}
+
+.preview-education-container h3 {
+    border-bottom: 2px solid black;
+}
+
+.preview-experience-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.preview-experience-container h3 {
+    border-bottom: 2px solid black;
 }

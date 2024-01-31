@@ -11,7 +11,6 @@
 
 @media (max-width: 1920px) {
     .preview-container {
-        max-width: calc(21cm * 0.75); /* 75% of 21cm */
         max-height: calc(29.7cm * 0.75); /* Adjust height accordingly to maintain aspect ratio */
     }
     /* Further adjust font sizes and other properties as needed */

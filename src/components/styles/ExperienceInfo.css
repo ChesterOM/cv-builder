@@ -9,3 +9,22 @@
 .experience-info-container h2 {
     padding-left: 10px;
 }
+
+.experience-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+    
+  }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+

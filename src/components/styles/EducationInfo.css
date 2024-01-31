@@ -10,3 +10,8 @@
     padding-left: 10px;
 }
 
+.education-tab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

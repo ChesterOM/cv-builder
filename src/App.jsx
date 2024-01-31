@@ -8,7 +8,7 @@ import Sidebar from './components/Sidebar'
 function App() {
     const [generalData, setGeneralData] = useState(
     {
-        name: 'test',
+        name: '',
         email: '',
         phone: '',
         address:''

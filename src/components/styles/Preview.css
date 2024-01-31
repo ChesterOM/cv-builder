@@ -1,8 +1,6 @@
 .preview-container {
-    width: 80vw; /* Adjust based on your layout needs */
-    height: calc(80vw * 1.41); /* A4 aspect ratio */
-    max-width: 21cm; /* Maximum width */
-    max-height: 29.7cm; /* Maximum height */
+    height: 29.7cm;
+    width: 21cm;
     background-color: white;
     margin: auto;
     box-shadow: 0 13px 27px -5px rgba(50,50,93,.1), 0 8px 16px -8px rgba(0,0,0,.25);
@@ -11,12 +9,12 @@
     overflow: hidden;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1920px) {
     .preview-container {
-        width: 90vw;
-        height: calc(90vw * 1.41);
+        max-width: calc(21cm * 0.75); /* 75% of 21cm */
+        max-height: calc(29.7cm * 0.75); /* Adjust height accordingly to maintain aspect ratio */
     }
-    /* Adjust font sizes and other properties as needed */
+    /* Further adjust font sizes and other properties as needed */
 }
 
 .preview-top {
